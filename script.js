@@ -23,10 +23,10 @@ function generatePassword() {
   var randPassword;
 
 
-
+  // Only accepts correct prompt inputs otherwise keeps asking
   let passLength = prompt("Between 8 and 128 characters, how long would you like your password to be?");
 
-  // Only accepts correct prompt inputs 
+
   while (isCorrectPrompt(passLength) === false) {
 
     passLength = prompt("That was an incorrect input, please try again." + "\r\n" + "\r\n" + "Between 8 and 128 characters, how long would you like your password to be?");
@@ -35,24 +35,46 @@ function generatePassword() {
 
 
 
+  // Only accepts correct prompt inputs otherwise keeps asking. If response is null, it becomes an empty string.
+  let passLowerCase = prompt("Would you like to use lowercase letters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLowerCase() || '';
 
-  let passLowerCase = prompt("Would you like to use lowercase letters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.").toLowerCase();
-
-  console.log(passLowerCase);
+  
 
   while (isCorrectPromptYesNo(passLowerCase) === false) {
 
-    passLowerCase = prompt("That was an incorrect input, please try again." + "\r\n" + "\r\n" + "Would you like to use lowercase letters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.").toLowerCase();
+    passLowerCase = prompt("That was an incorrect input, please try again." + "\r\n" + "\r\n" + "Would you like to use lowercase letters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLowerCase() || '';
 
   };
 
 
+  // Only accepts correct prompt inputs otherwise keeps asking. If response is null, it becomes an empty string.
+  let passUpperCase = prompt("Would you like to use uppercase letters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLocaleLowerCase() || '';
 
-  let passUpperCase = prompt("Would you like to use uppercase letters?");
+  while (isCorrectPromptYesNo(passUpperCase) === false) {
 
-  let numeric = prompt("Would you like to use numbers?");
+    passUpperCase = prompt("That was an incorrect input, please try again" + "\r\n" + "\r\n" + "Would you like to use uppercase letters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLocaleLowerCase() || '';
 
-  let specialChar = prompt("Would you like to use special characters?");
+
+  }
+
+  // Only accepts correct prompt inputs otherwise keeps asking. If response is null, it becomes an empty string.
+  let numeric = prompt("Would you like to use numbers?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLowerCase() || '';
+
+  while (isCorrectPromptYesNo(numeric) === false) {
+
+    numeric = prompt("That was an incorrect input, please try again" + "\r\n" + "\r\n" + "Would you like to use numbers?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLocaleLowerCase() || '';
+
+  }
+
+
+  // Only accepts correct prompt inputs otherwise keeps asking. If response is null, it becomes an empty string.
+  let specialChar = prompt("Would you like to use special characters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLowerCase() || '';
+
+  while (isCorrectPromptYesNo(specialChar) === false) {
+    specialChar = prompt("That was an incorrect input, please try again" + "\r\n" + "\r\n" + "Would you like to use special characters?" + "\r\n" + "\r\n" + "Please type 'yes' or 'no'.")?.toLowerCase()|| '';
+
+
+  }
 
 
 
@@ -64,7 +86,7 @@ function generatePassword() {
 // Checks to see if the length prompt is within acceptable bounds and ends if the user presses cancel 
 function isCorrectPrompt(x) {
   if (x === null) {
-    generatePassword.end;
+    return false;
 
   } else if (x >= 8 && x <= 128) {
     return true;
@@ -77,11 +99,11 @@ function isCorrectPrompt(x) {
 
 // Checks to see if the prompt is yes or no 
 function isCorrectPromptYesNo(y) {
-  console.log(y);
-  if (y === null) {
-    generatePassword.end;
+  
+  if (y === '') {
+    return false;
 
-  } else if (y ==="yes" || y==="no") {
+  } else if (y === "yes" || y === "no") {
     return true;
 
 
