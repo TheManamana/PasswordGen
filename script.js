@@ -76,9 +76,9 @@ function generatePassword() {
 
   }
 
-  createPassword(passLength, passLowerCase, passUpperCase, numeric, specialChar);
+  
 
-  return randPassword;
+  return createPassword(passLength, passLowerCase, passUpperCase, numeric, specialChar);
 
 }
 
@@ -142,6 +142,7 @@ function createPassword(a, b, c, d, e) {
     var chooserTwo = [""];
     var chooserThree = [""];
     var chooserFour = [""];
+    
 
     // Sets how many arrays we need to choose from based on which characters the user wants to use 
     var howManyChoosers = 0;
@@ -159,36 +160,107 @@ function createPassword(a, b, c, d, e) {
       howManyChoosers = howManyChoosers + 1;
     }
 
+
     for (z = 0; z < howManyChoosers; z++) {
+
+      // Checks to see if chooserOne is empty and if a certain character option is requested. If both are true it sets chooserOne to that options array 
       if (z === 0 && b === "yes") {
         if (chooserOne.length < 2 || array == undefined) {
           chooserOne = lCase;
         }
       }
+      if (z === 0 && c === "yes") {
+        if (chooserOne.length < 2 || array == undefined) {
+          chooserOne = uCase;
+        }
+      }
+      if (z === 0 && d === "yes") {
+        if (chooserOne.length < 2 || array == undefined) {
+          chooserOne = numbers;
+        }
+      } if (z === 0 && e === "yes") {
+        if (chooserOne.length < 2 || array == undefined) {
+          chooserOne = special;
+        }
+
+
+        // Checks to see if chooserTwo is empty and if a certain character option is requested. If both are true it sets chooserOne to that options array              
+        if (z === 1 && c === "yes") {
+          if (chooserTwo.length < 2 || array == undefined) {
+            chooserTwo = uCase;
+          }
+        }
+        if (z === 1 && d === "yes") {
+          if (chooserTwo.length < 2 || array == undefined) {
+            chooserTwo = numbers;
+          }
+        } if (z === 1 && e === "yes") {
+          if (chooserTwo.length < 2 || array == undefined) {
+            chooserTwo = special;
+          }
+        }
+
+
+        // Checks to see if chooserThree is empty and if a certain character option is requested. If both are true it sets chooserOne to that options array              
+        if (z === 2 && d === "yes") {
+          if (chooserThree.length < 2 || array == undefined) {
+            chooserThree = numbers;
+          }
+        } if (z === 2 && e === "yes") {
+          if (chooserThree.length < 2 || array == undefined) {
+            chooserThree = special;
+          }
+        }
+
+
+
+        // Checks to see if chooserFour is empty and if a certain character option is requested. If both are true it sets chooserOne to that options array              
+        if (z === 3 && e === "yes") {
+          if (chooserFour.length < 2 || array == undefined) {
+            chooserFour = special;
+          }
+        }
+
+
+
+
+
+
+      }
+
+      var randomArrayNum;
+
+      for (i = 0; i < a; i++) {
+
+        randomArrayNum = Math.floor(Math.random() * howManyChoosers);
+
+
+        if (randomArrayNum === 0) {
+
+
+
+          password = password.concat(chooserOne[Math.floor(Math.random() * chooserOne.length)]);
+
+        }
+
+
+        
+
+      }
+
+    return password;
+
+      console.log(lCase);
+      console.log(uCase);
+
+
+
+
 
 
     }
-
-
-
-    for (i = 0; i < a; i++) {
-
-
-      password = password.concat("");
-
-    }
-
-
-
-    console.log(lCase);
-    console.log(uCase);
-
-
-
-
 
 
   }
-
 
 }
