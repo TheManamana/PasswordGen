@@ -6,6 +6,9 @@ If the user presses the generate password button, a series of prompts will ask t
 
 The user must type an acceptable response. 
 
+Url Link:
+[Password Generator](https://TheManamana.github.io/PasswordGen/) 
+
 ## Example of a prompt:
 ![A display prompt asking for the length of the password](./assets/images/PassGen2.png)
 
