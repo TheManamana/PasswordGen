@@ -185,7 +185,7 @@ function createPassword(a, b, c, d, e) {
       if (z === 0 && shouldUseD === "yes") {
         if (chooserOne.length < 2 || chooserOne == undefined) {
           chooserOne = numbers;
-          shouldUseD="no";
+          shouldUseD = "no";
         }
       }
 
@@ -200,14 +200,14 @@ function createPassword(a, b, c, d, e) {
       if (z === 1 && shouldUseC === "yes") {
         if (chooserTwo.length < 2 || chooserTwo == undefined) {
           chooserTwo = uCase;
-          shouldUseC="no";
+          shouldUseC = "no";
         }
       }
 
       if (z === 1 && shouldUseD === "yes") {
         if (chooserTwo.length < 2 || chooserTwo == undefined) {
           chooserTwo = numbers;
-          shouldUseD="no";
+          shouldUseD = "no";
         }
       }
 
@@ -222,7 +222,7 @@ function createPassword(a, b, c, d, e) {
       if (z === 2 && shouldUseD === "yes") {
         if (chooserThree.length < 2 || chooserThree == undefined) {
           chooserThree = numbers;
-          shouldUseD ="no";
+          shouldUseD = "no";
         }
       }
       if (z === 2 && e === "yes") {
